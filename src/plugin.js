@@ -13,7 +13,8 @@ class Plugin {
 	log(message) {
 		this.output.log.write(chalk.underline.ansi256(236)(' '.repeat(term.width)))
 		this.output.writeLog(this.header(message))
-		this.output.writeLog(this.format(message))
+		let formattedMessage = this.format(message);
+		if (formattedMessage) this.output.writeLog(formattedMessage)
 	}
 
 	header(message) {
